@@ -13,6 +13,7 @@ import (
 	queuecontract "github.com/goravel/framework/contracts/queue"
 	configmock "github.com/goravel/framework/mocks/config"
 	"github.com/goravel/framework/queue"
+	"github.com/goravel/framework/support"
 	"github.com/goravel/framework/support/color"
 	"github.com/goravel/framework/support/file"
 )
@@ -24,7 +25,7 @@ type ApplicationTestSuite struct {
 }
 
 func TestApplicationTestSuite(t *testing.T) {
-	if !file.Exists("../.env") && os.Getenv("MAIL_HOST") == "" {
+	if !file.Exists("../"+support.EnvPath) && os.Getenv("MAIL_HOST") == "" {
 		color.Errorln("No mail tests run, need create .env based on .env.example, then initialize it")
 		return
 	}
@@ -171,9 +172,9 @@ func mockConfig(mailPort int) *configmock.Config {
 	mockConfig.On("GetString", "queue.failed.database").Return("database")
 	mockConfig.On("GetString", "queue.failed.table").Return("failed_jobs")
 
-	if file.Exists("../.env") {
+	if file.Exists("../" + support.EnvPath) {
 		vip := viper.New()
-		vip.SetConfigName("../.env")
+		vip.SetConfigName("../" + support.EnvPath)
 		vip.SetConfigType("env")
 		vip.AddConfigPath(".")
 		_ = vip.ReadInConfig()
