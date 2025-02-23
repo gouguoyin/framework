@@ -77,7 +77,7 @@ var (
 	LogDriverNotSupported      = New("invalid driver: %s, only support stack, single, daily, custom").SetModule(ModuleLog)
 	LogEmptyLogFilePath        = New("empty log file path").SetModule(ModuleLog)
 
-	MigrationCreateFailed    = New("Create migration failed: %v")
+	MigrationCreateFailed    = New("create migration failed: %v")
 	MigrationFreshFailed     = New("migration fresh failed: %v")
 	MigrationGetStatusFailed = New("get migration status failed: %v")
 	MigrationMigrateFailed   = New("migrate failed: %v")
