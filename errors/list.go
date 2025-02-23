@@ -5,7 +5,7 @@ var (
 	ArtisanFacadeNotSet  = New("artisan facade is not initialized")
 	CacheFacadeNotSet    = New("cache facade is not initialized")
 	ConfigFacadeNotSet   = New("config facade is not initialized")
-	JSONParserNotSet     = New("JSON parser is not initialized")
+	JSONParserNotSet     = New("json parser is not initialized")
 	LogFacadeNotSet      = New("log facade is not initialized")
 	OrmFacadeNotSet      = New("orm facade is not initialized")
 	QueueFacadeNotSet    = New("queue facade is not initialized")
